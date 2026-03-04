@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chisom Success | Brand Identity Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #00C853;
+            --dark-green: #009624;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border: #222222;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .hire-btn {
+            background: var(--primary-green);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-green);
+        }
+        .hire-btn:hover {
+            background: transparent;
+            color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 200, 83, 0.3);
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 200, 83, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+        .hero-subtitle {
+            color: var(--primary-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .hero-subtitle::before {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: var(--primary-green);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .btn-primary {
+            background: var(--primary-green);
+            color: var(--dark-bg);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-green);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 200, 83, 0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
+        .services {
+            padding: 100px 5%;
+            background: var(--darker-bg);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .section-tag {
+            color: var(--primary-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid var(--primary-green);
+            border-radius: 20px;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-green), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .portfolio {
+            padding: 100px 5%;
+        }
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .portfolio-filters {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-green);
+            color: var(--dark-bg);
+            border-color: var(--primary-green);
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio-category {
+            color: var(--primary-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .portfolio-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .portfolio-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .portfolio-link:hover {
+            color: var(--primary-green);
+        }
+        .about {
+            padding: 100px 5%;
+            background: var(--darker-bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--primary-green);
+            color: var(--dark-bg);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 200, 83, 0.3);
+        }
+        .experience-badge .years {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+        }
+        .experience-badge .text {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .skill-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .skill-tag:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+        .testimonials {
+            padding: 100px 5%;
+            text-align: center;
+        }
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+        .testimonial {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .testimonial::before {
+            content: '"';
+            font-size: 6rem;
+            color: var(--primary-green);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            line-height: 1;
+        }
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .testimonial-role {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+        }
+        .contact {
+            padding: 100px 5%;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+        .contact-box {
+            max-width: 800px;
+            margin: 60px auto 0;
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+        }
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .contact-method {
+            text-align: center;
+        }
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 200, 83, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            transition: all 0.3s;
+        }
+        .contact-method:hover .contact-icon {
+            background: var(--primary-green);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+        }
+        .contact-method h3 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .contact-method a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-method a:hover {
+            color: var(--primary-green);
+        }
+        .payment-notice {
+            background: rgba(0, 200, 83, 0.1);
+            border: 1px solid var(--primary-green);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        .payment-notice h4 {
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .payment-badge {
+            background: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+        footer {
+            padding: 50px 5%;
+            background: var(--dark-bg);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        .social-links a:hover {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .about {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-stats {
+                gap: 30px;
+            }
+            .contact-box {
+                padding: 40px 30px;
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            <i class="fas fa-infinity"></i>
+            EXQUISITE WORLD
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="hire-btn">Hire Me</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle">Available for International Projects</div>
+            <h1>Brand Identity Designer & Visual Strategist</h1>
+            <p class="hero-description">
+                I transform businesses into memorable brands through strategic design. 
+                6+ years crafting 4000+ visual identities for clients across 4 continents. 
+                Currently accepting high-value projects from US & UK markets.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">4000+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn-primary">
+                    View Portfolio <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://wa.me/2349153150185" target="_blank" class="btn-secondary">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Catalog
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-tag">What I Do</span>
+            <h2 class="section-title">Premium Design Services</h2>
+            <p class="section-subtitle">
+                Specialized in creating cohesive brand experiences that drive business growth 
+                and establish market authority.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-fingerprint"></i>
+                </div>
+                <h3>Brand Identity Design</h3>
+                <p>Complete visual identity systems including logo design, color palettes, typography, and brand guidelines.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Print Media Design</h3>
+                <p>Professional flyers, brochures, magazines, banners, and textbooks with meticulous attention to detail.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Brand Strategy</h3>
+                <p>Strategic rebranding, market positioning, and visual storytelling that connects brands with audiences.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Digital Assets</h3>
+                <p>Social media graphics, app icons, web visuals, and digital marketing materials optimized for engagement.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Merchandise Design</h3>
+                <p>Custom apparel design, product labeling, and promotional merchandise for brand extension.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Document Design</h3>
+                <p>Professional business stationery, letterheads, ID cards, and corporate documents.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-header">
+            <div>
+                <span class="section-tag">Selected Works</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Brand Identity</button>
+                <button class="filter-btn">Print Media</button>
+                <button class="filter-btn">Digital</button>
+            </div>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="16_1.png" alt="Foveros Magazine Brand Identity">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Brand Identity</div>
+                    <h3 class="portfolio-title">Foveros Magazine Rebrand</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Complete brand identity system including logo grid, typography, color psychology, and guidelines.
+                    </p>
+                    <a href="#" class="portfolio-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="17.png" alt="Magazine Cover Design">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Print Media</div>
+                    <h3 class="portfolio-title">Editorial Design</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Creative magazine covers and editorial layouts with sophisticated visual hierarchy.
+                    </p>
+                    <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="15.png" alt="Brand Guidelines">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Brand Strategy</div>
+                    <h3 class="portfolio-title">Visual Identity Systems</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Detailed brand guidelines covering logo variations, placement rules, and color codes.
+                    </p>
+                    <a href="#" class="portfolio-link">View Guidelines <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="8.png" alt="App Icon Design">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Digital</div>
+                    <h3 class="portfolio-title">App Icon Systems</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Scalable app icon variations optimized for multiple platforms.
+                    </p>
+                    <a href="#" class="portfolio-link">View Icons <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="18.png" alt="Merchandise Design">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Merchandise</div>
+                    <h3 class="portfolio-title">Brand Merchandise</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        Professional apparel mockups and branded merchandise design.
+                    </p>
+                    <a href="#" class="portfolio-link">View Mockups <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="4.png" alt="Marketing Materials">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-category">Print Media</div>
+                    <h3 class="portfolio-title">Marketing Collateral</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                        High-impact flyers, brochures, and promotional materials.
+                    </p>
+                    <a href="#" class="portfolio-link">View Materials <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800" alt="Chisom Success">
+            <div class="experience-badge">
+                <span class="years">6+</span>
+                <span class="text">Years<br>Experience</span>
+            </div>
+        </div>
+        <div class="about-content">
+            <span class="section-tag">About Me</span>
+            <h2>Transforming Visions Into Visual Masterpieces</h2>
+            <p>
+                I'm Chisom Success, a Nigerian-born Brand Identity Designer with 6+ years of experience 
+                and 4000+ completed projects. I've helped businesses across Africa, Europe, and 
+                North America establish powerful brand presences.
+            </p>
+            <p>
+                As Founder of <strong>Exquisite World</strong> and <strong>Bodify Luxe</strong>, 
+                I understand both creative and strategic sides of business.
+            </p>
+            
+            <div class="skills">
+                <span class="skill-tag">Adobe Creative Suite</span>
+                <span class="skill-tag">CorelDRAW</span>
+                <span class="skill-tag">Brand Strategy</span>
+                <span class="skill-tag">Typography</span>
+                <span class="skill-tag">Color Theory</span>
+                <span class="skill-tag">Print Production</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">Client Success Stories</h2>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    Chisom delivered a complete brand identity for our magazine that exceeded all expectations. 
+                    Our readership increased by 40% after the rebrand.
+                </p>
+                <div class="testimonial-author">Foveros Magazine Team</div>
+                <div class="testimonial-role">Media & Publishing Client</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Create Something Extraordinary</h2>
+        <p class="section-subtitle">
+            Currently accepting select projects for Q1 2025. 
+            Premium design solutions for serious businesses.
+        </p>
+
+        <div class="contact-box">
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <a href="mailto:sommydexquisit@gmail.com">sommydexquisit@gmail.com</a>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/2349153150185" target="_blank">+234 915 315 0185</a>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon"><i class="fab fa-facebook"></i></div>
+                    <h3>Facebook</h3>
+                    <a href="https://www.facebook.com/profile.php?id=100080503676597" target="_blank">Chisom Success</a>
+                </div>
+            </div>
+
+            <div class="payment-notice">
+                <h4><i class="fas fa-globe"></i> International Payment Accepted</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                    Seamless transactions for US, UK, and global clients.
+                </p>
+                <div class="payment-methods">
+                    <span class="payment-badge">PayPal</span>
+                    <span class="payment-badge">Wise</span>
+                    <span class="payment-badge">Stripe</span>
+                    <span class="payment-badge">Payoneer</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/2349153150185" target="_blank" class="btn-primary" style="margin-top: 40px;">
+                <i class="fab fa-whatsapp"></i> Start Your Project Now
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">EXQUISITE WORLD</div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100080503676597" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2349153150185" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:sommydexquisit@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="copyright">
+            © 2025 Chisom Success | Exquisite World. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .portfolio-item, .testimonial').forEach((el) => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(5, 5, 5, 0.98)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
+
